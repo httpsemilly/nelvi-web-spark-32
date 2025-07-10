@@ -49,7 +49,7 @@ const Footer = () => {
               <img 
                 src="/lovable-uploads/3f58db80-c944-48ef-850a-c469eee02a4a.png" 
                 alt="Nelvi Logo" 
-                className="h-12 w-auto object-contain"
+                className="h-16 w-auto object-contain"
               />
             </div>
             

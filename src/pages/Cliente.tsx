@@ -50,13 +50,13 @@ const Cliente = () => {
       </div>
 
       <div className="max-w-md w-full">
-        {/* Logo */}
+        {/* Logo - Increased size */}
         <div className="text-center mb-8 animate-fade-in">
           <div className="flex items-center justify-center mb-4">
             <img 
               src="/lovable-uploads/3f58db80-c944-48ef-850a-c469eee02a4a.png" 
               alt="Nelvi Logo" 
-              className="h-16 w-auto object-contain"
+              className="h-20 w-auto object-contain"
             />
           </div>
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Área do Cliente</h1>
