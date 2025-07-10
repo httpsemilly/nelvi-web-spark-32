@@ -60,13 +60,14 @@ const Header = () => {
     }`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          {/* Logo - Increased size */}
-          <div className="flex items-center">
-            <img 
-              src="/lovable-uploads/3f58db80-c944-48ef-850a-c469eee02a4a.png" 
-              alt="Nelvi Logo" 
-              className="h-14 sm:h-16 lg:h-18 w-auto object-contain"
-            />
+          {/* Logo */}
+          <div className="flex items-center space-x-2 sm:space-x-3">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-brand-blue to-brand-purple rounded-2xl flex items-center justify-center shadow-lg">
+              <span className="text-white font-bold text-lg sm:text-xl">N</span>
+            </div>
+            <span className="text-2xl sm:text-3xl font-bold gradient-text">
+              Nelvi
+            </span>
           </div>
 
           {/* Desktop Menu */}
@@ -112,9 +113,9 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile Menu - Fixed layout */}
+        {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden bg-background/95 backdrop-blur-md border-b border-border shadow-lg">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border shadow-lg">
             <nav className="px-4 sm:px-6 py-4 sm:py-6">
               <div className="flex flex-col space-y-3 sm:space-y-4">
                 {menuItems.map((item) => (

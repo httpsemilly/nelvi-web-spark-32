@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, ChevronDown, Play, Star, Users, Award, Sparkles } from 'lucide-react';
+import { ArrowRight, ChevronDown, Play, Star, Users, Award, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
@@ -75,6 +75,14 @@ const Hero = () => {
     }
   };
 
+  const goToPrevious = () => {
+    api?.scrollPrev();
+  };
+
+  const goToNext = () => {
+    api?.scrollNext();
+  };
+
   return (
     <section id="hero" className="relative min-h-screen overflow-hidden bg-background">
       <Carousel 
@@ -109,12 +117,12 @@ const Hero = () => {
                 </div>
                 
                 {/* Content */}
-                <div className="relative z-10 flex items-center justify-center h-full pt-20 pb-40">
+                <div className="relative z-10 flex items-center justify-center h-full pt-20 pb-32">
                   <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="max-w-7xl mx-auto">
-                      <div className="flex items-center justify-center">
-                        {/* Centered Content */}
-                        <div className="text-center max-w-4xl">
+                      <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                        {/* Left Content */}
+                        <div className="text-center lg:text-left">
                           <div className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6 sm:mb-8 fade-in">
                             <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400 mr-2 sm:mr-3" />
                             <span className="text-xs sm:text-sm font-semibold text-white">
@@ -126,11 +134,11 @@ const Hero = () => {
                             {slide.title}
                           </h1>
                           
-                          <p className="text-lg sm:text-xl lg:text-2xl text-white/90 mb-8 sm:mb-12 leading-relaxed slide-in-left animate-delay-200">
+                          <p className="text-lg sm:text-xl lg:text-2xl text-white/90 mb-8 sm:mb-12 leading-relaxed max-w-2xl mx-auto lg:mx-0 slide-in-left animate-delay-200">
                             {slide.subtitle}
                           </p>
                           
-                          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-8 sm:mb-12 slide-in-left animate-delay-400 justify-center">
+                          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-8 sm:mb-12 slide-in-left animate-delay-400 justify-center lg:justify-start">
                             <Button 
                               onClick={slide.buttonAction}
                               size="lg"
@@ -150,26 +158,67 @@ const Hero = () => {
                             </Button>
                           </div>
                           
-                          {/* Stats - Centered */}
-                          <div className="grid grid-cols-3 gap-4 sm:gap-8 slide-up animate-delay-600 max-w-2xl mx-auto">
+                          {/* Stats - Enhanced Responsiveness */}
+                          <div className="grid grid-cols-3 gap-2 sm:gap-4 slide-up animate-delay-600 max-w-md mx-auto lg:mx-0">
                             {stats.map((stat, idx) => {
                               const IconComponent = stat.icon;
                               return (
                                 <div key={idx} className="text-center group">
-                                  <div className="flex items-center justify-center mb-2 sm:mb-3">
-                                    <div className="w-6 h-6 sm:w-8 sm:h-8 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center mr-2 sm:mr-3 group-hover:bg-white/20 transition-colors duration-300">
-                                      <IconComponent className="h-3 w-3 sm:h-4 sm:w-4 text-blue-400" />
+                                  <div className="flex items-center justify-center mb-1 sm:mb-2">
+                                    <div className="w-4 h-4 sm:w-6 sm:h-6 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center mr-1 sm:mr-2 group-hover:bg-white/20 transition-colors duration-300">
+                                      <IconComponent className="h-2 w-2 sm:h-3 sm:w-3 text-blue-400" />
                                     </div>
-                                    <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">
+                                    <div className="text-lg sm:text-xl lg:text-2xl font-bold text-white">
                                       {stat.number}
                                     </div>
                                   </div>
-                                  <div className="text-sm sm:text-base text-white/80 font-medium">
+                                  <div className="text-xs sm:text-sm text-white/80 font-medium">
                                     {stat.label}
                                   </div>
                                 </div>
                               );
                             })}
+                          </div>
+                        </div>
+                        
+                        {/* Right Content - Enhanced Card with Better Responsiveness */}
+                        <div className="relative slide-in-right animate-delay-400 hidden lg:block">
+                          <div className="relative">
+                            <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-6 lg:p-10 border border-white/20 shadow-2xl">
+                              <div className="space-y-6 lg:space-y-8">
+                                {/* Browser Header */}
+                                <div className="flex items-center space-x-3 pb-4 lg:pb-6 border-b border-white/20">
+                                  <div className="w-3 h-3 lg:w-4 lg:h-4 bg-red-400 rounded-full"></div>
+                                  <div className="w-3 h-3 lg:w-4 lg:h-4 bg-yellow-400 rounded-full"></div>
+                                  <div className="w-3 h-3 lg:w-4 lg:h-4 bg-green-400 rounded-full"></div>
+                                  <div className="flex-1 bg-white/20 rounded-full h-6 lg:h-8 ml-4 lg:ml-6"></div>
+                                </div>
+                                
+                                {/* Content Preview */}
+                                <div className="space-y-4 lg:space-y-6">
+                                  <div className="h-6 lg:h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg w-4/5"></div>
+                                  <div className="space-y-3 lg:space-y-4">
+                                    <div className="h-3 lg:h-4 bg-white/40 rounded w-full"></div>
+                                    <div className="h-3 lg:h-4 bg-white/40 rounded w-5/6"></div>
+                                    <div className="h-3 lg:h-4 bg-white/40 rounded w-3/4"></div>
+                                  </div>
+                                  
+                                  <div className="grid grid-cols-2 gap-4 lg:gap-6 mt-8 lg:mt-10">
+                                    <div className="h-24 lg:h-32 bg-gradient-to-br from-blue-500/80 to-purple-500/80 rounded-2xl"></div>
+                                    <div className="h-24 lg:h-32 bg-white/30 rounded-2xl"></div>
+                                  </div>
+                                  
+                                  <div className="flex justify-center mt-8 lg:mt-10">
+                                    <div className="w-32 lg:w-40 h-10 lg:h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl"></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            {/* Enhanced Floating Elements */}
+                            <div className="absolute -top-6 lg:-top-8 -right-6 lg:-right-8 w-24 lg:w-32 h-24 lg:h-32 bg-blue-500/20 rounded-full animate-float blur-xl"></div>
+                            <div className="absolute -bottom-6 lg:-bottom-8 -left-6 lg:-left-8 w-20 lg:w-24 h-20 lg:h-24 bg-purple-500/20 rounded-full animate-float blur-xl" style={{ animationDelay: '1s' }}></div>
+                            <div className="absolute top-1/2 -right-3 lg:-right-4 w-12 lg:w-16 h-12 lg:h-16 bg-white/10 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
                           </div>
                         </div>
                       </div>
@@ -181,8 +230,25 @@ const Hero = () => {
           ))}
         </CarouselContent>
         
-        {/* Navigation Dots - Better positioned to not overlap content */}
-        <div className="absolute bottom-20 sm:bottom-24 left-1/2 transform -translate-x-1/2 flex space-x-3 sm:space-x-4 z-20">
+        {/* Navigation Arrows - Desktop only, positioned to not overlap content */}
+        <div className="hidden lg:block">
+          <button
+            onClick={goToPrevious}
+            className="absolute left-8 top-1/2 transform -translate-y-1/2 z-20 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-110"
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </button>
+          
+          <button
+            onClick={goToNext}
+            className="absolute right-8 top-1/2 transform -translate-y-1/2 z-20 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-110"
+          >
+            <ChevronRight className="h-6 w-6" />
+          </button>
+        </div>
+        
+        {/* Enhanced Navigation Dots - Positioned to not overlap content */}
+        <div className="absolute bottom-32 sm:bottom-40 left-1/2 transform -translate-x-1/2 flex space-x-3 sm:space-x-4 z-20">
           {slides.map((_, index) => (
             <button
               key={index}
@@ -197,8 +263,8 @@ const Hero = () => {
         </div>
       </Carousel>
       
-      {/* Scroll Indicator - Better positioned to not overlap content */}
-      <div className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+      {/* Enhanced Scroll Indicator - Positioned to not overlap content */}
+      <div className="absolute bottom-12 sm:bottom-16 left-1/2 transform -translate-x-1/2 z-20">
         <button
           onClick={scrollToNext}
           className="text-white/80 hover:text-white transition-colors duration-300 flex flex-col items-center animate-bounce-gentle group"

@@ -45,12 +45,11 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Enhanced Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center mb-8">
-              <img 
-                src="/lovable-uploads/3f58db80-c944-48ef-850a-c469eee02a4a.png" 
-                alt="Nelvi Logo" 
-                className="h-16 w-auto object-contain"
-              />
+            <div className="flex items-center space-x-3 mb-8">
+              <div className="w-12 h-12 bg-gradient-to-br from-brand-blue to-brand-purple rounded-2xl flex items-center justify-center shadow-lg">
+                <span className="text-white font-bold text-xl">N</span>
+              </div>
+              <span className="text-3xl font-bold">Nelvi</span>
             </div>
             
             <p className="text-primary-foreground/80 mb-8 leading-relaxed text-lg">
