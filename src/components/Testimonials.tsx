@@ -70,7 +70,7 @@ const Testimonials = () => {
           </div>
           
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-            O que nossos
+            Veja o que nossos
             <span className="gradient-text block mt-2">
               clientes dizem
             </span>

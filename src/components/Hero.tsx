@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, ChevronDown, Play, Star, Users, Award, Sparkles } from 'lucide-react';
+import { ArrowRight, ChevronDown, Play, Star, Users, Award, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
@@ -75,8 +75,16 @@ const Hero = () => {
     }
   };
 
+  const goToPrevious = () => {
+    api?.scrollPrev();
+  };
+
+  const goToNext = () => {
+    api?.scrollNext();
+  };
+
   return (
-    <section id="hero" className="relative min-h-screen overflow-hidden bg-background [&_*]:!text-white [&_*]:!border-white/20">
+    <section id="hero" className="relative min-h-screen overflow-hidden bg-background">
       <Carousel 
         className="w-full h-screen"
         setApi={setApi}
@@ -102,14 +110,14 @@ const Hero = () => {
                   style={{ backgroundImage: `url(${slide.background})` }}
                 />
                 
-                {/* Enhanced Overlay - Force light mode styling */}
+                {/* Enhanced Overlay */}
                 <div className="absolute inset-0">
                   <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-slate-900/50" />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
                 </div>
                 
                 {/* Content */}
-                <div className="relative z-10 flex items-center justify-center h-full">
+                <div className="relative z-10 flex items-center justify-center h-full pt-20 pb-32">
                   <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="max-w-7xl mx-auto">
                       <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
@@ -143,7 +151,7 @@ const Hero = () => {
                             <Button 
                               variant="outline"
                               size="lg"
-                              className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105"
+                              className="bg-white text-black border-2 border-white hover:bg-white/90 hover:text-black px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105"
                             >
                               <Play className="mr-2 h-5 w-5 sm:h-6 sm:w-6" />
                               Assistir Demo
@@ -222,8 +230,25 @@ const Hero = () => {
           ))}
         </CarouselContent>
         
-        {/* Enhanced Navigation Dots */}
-        <div className="absolute bottom-24 sm:bottom-32 left-1/2 transform -translate-x-1/2 flex space-x-3 sm:space-x-4 z-20">
+        {/* Navigation Arrows - Desktop only, positioned to not overlap content */}
+        <div className="hidden lg:block">
+          <button
+            onClick={goToPrevious}
+            className="absolute left-8 top-1/2 transform -translate-y-1/2 z-20 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-110"
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </button>
+          
+          <button
+            onClick={goToNext}
+            className="absolute right-8 top-1/2 transform -translate-y-1/2 z-20 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-110"
+          >
+            <ChevronRight className="h-6 w-6" />
+          </button>
+        </div>
+        
+        {/* Enhanced Navigation Dots - Positioned to not overlap content */}
+        <div className="absolute bottom-32 sm:bottom-40 left-1/2 transform -translate-x-1/2 flex space-x-3 sm:space-x-4 z-20">
           {slides.map((_, index) => (
             <button
               key={index}
@@ -238,8 +263,8 @@ const Hero = () => {
         </div>
       </Carousel>
       
-      {/* Enhanced Scroll Indicator */}
-      <div className="absolute bottom-8 sm:bottom-12 left-1/2 transform -translate-x-1/2 z-20">
+      {/* Enhanced Scroll Indicator - Positioned to not overlap content */}
+      <div className="absolute bottom-12 sm:bottom-16 left-1/2 transform -translate-x-1/2 z-20">
         <button
           onClick={scrollToNext}
           className="text-white/80 hover:text-white transition-colors duration-300 flex flex-col items-center animate-bounce-gentle group"
