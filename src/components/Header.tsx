@@ -61,13 +61,12 @@ const Header = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-2 sm:space-x-3">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-brand-blue to-brand-purple rounded-2xl flex items-center justify-center shadow-lg">
-              <span className="text-white font-bold text-lg sm:text-xl">N</span>
-            </div>
-            <span className="text-2xl sm:text-3xl font-bold gradient-text">
-              Nelvi
-            </span>
+          <div className="flex items-center">
+            <img 
+              src="/lovable-uploads/3f58db80-c944-48ef-850a-c469eee02a4a.png" 
+              alt="Nelvi Logo" 
+              className="h-10 sm:h-12 w-auto object-contain"
+            />
           </div>
 
           {/* Desktop Menu */}

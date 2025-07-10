@@ -52,15 +52,12 @@ const Cliente = () => {
       <div className="max-w-md w-full">
         {/* Logo */}
         <div className="text-center mb-8 animate-fade-in">
-          <div className="flex items-center justify-center space-x-3 mb-4">
+          <div className="flex items-center justify-center mb-4">
             <img 
-              src="/lovable-uploads/002fd703-b601-4ba9-8d49-1c3d50f95011.png" 
+              src="/lovable-uploads/3f58db80-c944-48ef-850a-c469eee02a4a.png" 
               alt="Nelvi Logo" 
-              className="w-12 h-12 object-contain"
+              className="h-16 w-auto object-contain"
             />
-            <span className="text-3xl font-bold bg-nelvi-gradient bg-clip-text text-transparent">
-              Nelvi
-            </span>
           </div>
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Área do Cliente</h1>
           <p className="text-gray-600 dark:text-gray-300">Acompanhe o progresso do seu projeto</p>
