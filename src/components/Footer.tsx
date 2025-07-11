@@ -53,8 +53,7 @@ const Footer = () => {
             </div>
             
             <p className="text-primary-foreground/80 mb-8 leading-relaxed text-lg">
-              Transformamos ideias em experiências digitais extraordinárias. 
-              Sua jornada para o sucesso online começa aqui.
+              Transformamos ideias em experiências digitais extraordinárias.
             </p>
             
             <div className="space-y-4">
@@ -114,7 +113,7 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-8">Newsletter</h3>
             <p className="text-primary-foreground/80 mb-6 leading-relaxed">
-              Receba dicas exclusivas e novidades sobre desenvolvimento web e transformação digital.
+              Receba dicas e novidades sobre desenvolvimento web e transformação digital.
             </p>
             
             <div className="space-y-4">
@@ -124,7 +123,7 @@ const Footer = () => {
                 className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl focus:border-brand-blue focus:outline-none transition-colors duration-200 placeholder:text-primary-foreground/50 backdrop-blur-sm"
               />
               <Button className="w-full bg-gradient-to-r from-brand-blue to-brand-purple hover:opacity-90 text-white py-3 rounded-xl transition-all duration-200 font-semibold">
-                Inscrever-se Gratuitamente
+                Inscrever-se
               </Button>
             </div>
             
@@ -165,15 +164,6 @@ const Footer = () => {
                 Cookies
               </a>
             </div>
-          </div>
-        </div>
-      </div>
-      
-      {/* Enhanced Bottom Bar */}
-      <div className="bg-primary/50 backdrop-blur-sm border-t border-primary-foreground/10 py-6 relative z-10">
-        <div className="container mx-auto container-padding">
-          <div className="text-center text-primary-foreground/60">
-            <span className="font-medium">Transformação Digital • Design Excepcional • Resultados Reais</span>
           </div>
         </div>
       </div>
