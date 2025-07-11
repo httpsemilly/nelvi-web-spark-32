@@ -18,7 +18,7 @@ const Hero = () => {
       id: 1,
       background: personHero1,
       title: "Soluções Digitais que Transformam",
-      subtitle: "Desenvolvemos experiências digitais excepcionais que impulsionam seu negócio para o próximo nível.",
+      subtitle: "Desenvolvemos experiências digitais que impulsionam seu negócio para o próximo nível.",
       buttonText: "Nossos Projetos",
       buttonAction: () => {
         const portfolioSection = document.getElementById('portfolio');
@@ -103,7 +103,7 @@ const Hero = () => {
         <CarouselContent className="h-screen">
           {slides.map((slide, index) => (
             <CarouselItem key={slide.id} className="h-screen p-0">
-              <div className="relative lg:h-full sm:h-[80%] w-full">
+              <div className="relative lg:h-full sm:h-[95%] w-full">
                 {/* Background Image */}
                 <div 
                   className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -122,7 +122,7 @@ const Hero = () => {
                     <div className="max-w-7xl mx-auto">
                       <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center mt-3">
                         {/* Left Content */}
-                        <div className="text-center lg:text-left">
+                        <div className="text-center sm:pl-4 lg:pl-0 lg:text-left">
                           <div className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6 sm:mb-8 fade-in">
                             <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400 mr-2 sm:mr-3" />
                             <span className="text-xs sm:text-sm font-semibold text-white">
@@ -139,21 +139,19 @@ const Hero = () => {
                           </p>
                           
                           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-8 sm:mb-12 slide-in-left animate-delay-400 justify-center lg:justify-start">
-                            <Button 
-                              onClick={slide.buttonAction}
-                              size="lg"
-                              className="bg-gradient-to-r from-brand-blue to-brand-purple hover:opacity-90 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl"
-                            >
-                              {slide.buttonText}
-                              <ArrowRight className="ml-2 h-5 w-5 sm:h-6 sm:w-6" />
-                            </Button>
+                          <Button 
+                            onClick={slide.buttonAction}
+                            className="bg-gradient-to-r from-brand-blue to-brand-purple hover:opacity-90 text-white px-6 sm:px-8 !py-7 sm:py-4 text-base sm:text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl border border-white/20 hover:border-white/30"
+                          >
+                            {slide.buttonText}
+                            <ArrowRight className="ml-2 h-5 w-5 sm:h-6 sm:w-6" />
+                          </Button>
                             
                             <Button 
                               variant="outline"
-                              size="lg"
-                              className="bg-white text-black border-2 border-white hover:bg-white/90 hover:text-black px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105"
+                              className="bg-white/10 backdrop-blur-md border border-white/50 text-white hover:bg-white/20 hover:text-white hover:border-white/30 px-6 sm:px-8 !py-7 sm:py-4 text-base sm:text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105 shadow-lg"
                             >
-                              <Play className="mr-2 h-5 w-5 sm:h-6 sm:w-6" />
+                              <Play className="mr-2 h-5 w-5 sm:h-6 sm:w-6 text-blue-400" />
                               Assistir Demo
                             </Button>
                           </div>
@@ -185,7 +183,7 @@ const Hero = () => {
                         <div className="relative slide-in-right animate-delay-400 hidden lg:block">
                           <div className="relative">
                             <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-6 lg:p-8 border border-white/20 shadow-2xl">
-                              <div className="space-y-6 lg:space-y-8">
+                              <div className="space-y-4 lg:space-y-6">
                                 {/* Browser Header */}
                                 <div className="flex items-center space-x-3 pb-4 lg:pb-6 border-b border-white/20">
                                   <div className="w-2 h-2 lg:w-3 lg:h-3 bg-red-400 rounded-full"></div>
@@ -195,9 +193,9 @@ const Hero = () => {
                                 </div>
                                 
                                 {/* Content Preview */}
-                                <div className="space-y-4 lg:space-y-6">
-                                  <div className="h-6 lg:h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg w-4/5"></div>
-                                  <div className="space-y-3 lg:space-y-4">
+                                <div className="space-y-3 lg:space-y-4">
+                                  <div className="h-5 lg:h-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg w-4/5"></div>
+                                  <div className="space-y-2 lg:space-y-3">
                                     <div className="h-3 lg:h-4 bg-white/40 rounded w-full"></div>
                                     <div className="h-3 lg:h-4 bg-white/40 rounded w-5/6"></div>
                                     <div className="h-3 lg:h-4 bg-white/40 rounded w-3/4"></div>
