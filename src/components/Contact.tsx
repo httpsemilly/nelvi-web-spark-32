@@ -112,9 +112,9 @@ ${formData.message}
           </div>
           
           {/* Fixed title styling */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground mb-6 leading-tight">
             Vamos começar seu
-            <span className="gradient-text block mt-2">
+            <span className="gradient-text block mt-2 pb-2">
               projeto juntos
             </span>
           </h2>

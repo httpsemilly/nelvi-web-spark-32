@@ -127,7 +127,7 @@ const Cliente = () => {
 
               <Button 
                 type="submit" 
-                className="w-full bg-nelvi-gradient hover:opacity-90 text-white py-3 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                className="w-full bg-nelvi-gradient hover:opacity-80 text-white py-3 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
               >
                 Entrar
               </Button>

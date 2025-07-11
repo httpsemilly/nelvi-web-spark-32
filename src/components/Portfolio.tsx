@@ -63,9 +63,9 @@ const Portfolio = () => {
             </span>
           </div>
           
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground mb-6 leading-tight">
             Projetos que
-            <span className="gradient-text block mt-2">
+            <span className="gradient-text block mt-2 pb-2">
               Transformam Negócios
             </span>
           </h2>

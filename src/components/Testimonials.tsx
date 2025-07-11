@@ -69,9 +69,9 @@ const Testimonials = () => {
             </span>
           </div>
           
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground mb-6 leading-tight">
             Veja o que nossos
-            <span className="gradient-text block mt-2">
+            <span className="gradient-text block mt-2 pb-2">
               clientes dizem
             </span>
           </h2>
@@ -130,7 +130,7 @@ const Testimonials = () => {
 
         <div className="text-center animate-fade-in">
           <div className="bg-gradient-to-br from-brand-blue/10 to-brand-purple/10 rounded-3xl p-12 backdrop-blur-sm border border-brand-blue/20 max-w-4xl mx-auto">
-            <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <h3 className="text-3xl md:text-4xl font-semibold text-foreground mb-4">
               Pronto para ser o próximo
               <span className="gradient-text block">caso de sucesso?</span>
             </h3>

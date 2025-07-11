@@ -73,9 +73,9 @@ const About = () => {
             </span>
           </div>
           
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground mb-4 sm:mb-6 leading-tight">
             Transformamos ideias em
-            <span className="gradient-text block mt-1 sm:mt-2">
+            <span className="gradient-text block mt-1 sm:mt-2 pb-2">
               realidade digital
             </span>
           </h2>
@@ -92,11 +92,6 @@ const About = () => {
             
             {/* Left Side - Enhanced Stats */}
             <div className="space-y-8 sm:space-y-12">
-              <div className="text-center lg:text-left">
-                <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 sm:mb-6">
-                  Nossos Resultados
-                </h3>
-              </div>
               
               <div className="grid gap-4 sm:gap-6 lg:gap-8">
                 {stats.map((stat, index) => {

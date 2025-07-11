@@ -62,9 +62,9 @@ const Services = () => {
             </span>
           </div>
           
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight slide-up">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground mb-6 leading-tight slide-up">
             Soluções Completas para
-            <span className="gradient-text block mt-2">
+            <span className="gradient-text block mt-2 pb-2">
               Seu Sucesso Digital
             </span>
           </h2>
@@ -118,7 +118,7 @@ const Services = () => {
         <div className="text-center slide-up animate-delay-600">
           <div className="bg-gradient-to-br from-brand-blue/10 to-brand-purple/10 rounded-3xl p-12 max-w-4xl mx-auto border border-brand-blue/20 backdrop-blur-sm">
             <div className="max-w-2xl mx-auto">
-              <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              <h3 className="text-3xl md:text-4xl font-semibold text-foreground mb-4">
                 Pronto para Transformar
                 <span className="gradient-text block">Seu Negócio?</span>
               </h3>

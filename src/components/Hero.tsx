@@ -19,7 +19,7 @@ const Hero = () => {
       background: personHero1,
       title: "Soluções Digitais que Transformam",
       subtitle: "Desenvolvemos experiências digitais excepcionais que impulsionam seu negócio para o próximo nível.",
-      buttonText: "Ver Nossos Projetos",
+      buttonText: "Nossos Projetos",
       buttonAction: () => {
         const portfolioSection = document.getElementById('portfolio');
         if (portfolioSection) {
@@ -45,7 +45,7 @@ const Hero = () => {
       background: personHero3,
       title: "Resultados Extraordinários",
       subtitle: "Sua presença digital de alto impacto começa aqui. Transforme visitantes em clientes.",
-      buttonText: "Conhecer Serviços",
+      buttonText: "Nossos Serviços",
       buttonAction: () => {
         const servicesSection = document.getElementById('services');
         if (servicesSection) {
@@ -103,7 +103,7 @@ const Hero = () => {
         <CarouselContent className="h-screen">
           {slides.map((slide, index) => (
             <CarouselItem key={slide.id} className="h-screen p-0">
-              <div className="relative h-full w-full">
+              <div className="relative lg:h-full sm:h-[80%] w-full">
                 {/* Background Image */}
                 <div 
                   className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -117,10 +117,10 @@ const Hero = () => {
                 </div>
                 
                 {/* Content */}
-                <div className="relative z-10 flex items-center justify-center h-full pt-20 pb-32">
-                  <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="relative z-10 flex items-center justify-center pt-20 pb-10">
+                  <div className="container mx-auto px-5 sm:px-6 lg:px-12">
                     <div className="max-w-7xl mx-auto">
-                      <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                      <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center mt-3">
                         {/* Left Content */}
                         <div className="text-center lg:text-left">
                           <div className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6 sm:mb-8 fade-in">
@@ -130,7 +130,7 @@ const Hero = () => {
                             </span>
                           </div>
                           
-                          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 sm:mb-8 leading-tight slide-in-left">
+                          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-semibold text-white mb-6 sm:mb-8 leading-none slide-in-left">
                             {slide.title}
                           </h1>
                           
@@ -159,7 +159,7 @@ const Hero = () => {
                           </div>
                           
                           {/* Stats - Enhanced Responsiveness */}
-                          <div className="grid grid-cols-3 gap-2 sm:gap-4 slide-up animate-delay-600 max-w-md mx-auto lg:mx-0">
+                          <div className="grid grid-cols-3 gap-2 sm:gap-4 slide-up animate-delay-600 max-w-[30rem] mx-auto lg:mx-0">
                             {stats.map((stat, idx) => {
                               const IconComponent = stat.icon;
                               return (
@@ -184,13 +184,13 @@ const Hero = () => {
                         {/* Right Content - Enhanced Card with Better Responsiveness */}
                         <div className="relative slide-in-right animate-delay-400 hidden lg:block">
                           <div className="relative">
-                            <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-6 lg:p-10 border border-white/20 shadow-2xl">
+                            <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-6 lg:p-8 border border-white/20 shadow-2xl">
                               <div className="space-y-6 lg:space-y-8">
                                 {/* Browser Header */}
                                 <div className="flex items-center space-x-3 pb-4 lg:pb-6 border-b border-white/20">
-                                  <div className="w-3 h-3 lg:w-4 lg:h-4 bg-red-400 rounded-full"></div>
-                                  <div className="w-3 h-3 lg:w-4 lg:h-4 bg-yellow-400 rounded-full"></div>
-                                  <div className="w-3 h-3 lg:w-4 lg:h-4 bg-green-400 rounded-full"></div>
+                                  <div className="w-2 h-2 lg:w-3 lg:h-3 bg-red-400 rounded-full"></div>
+                                  <div className="w-2 h-2 lg:w-3 lg:h-3 bg-yellow-400 rounded-full"></div>
+                                  <div className="w-2 h-2 lg:w-3 lg:h-3 bg-green-400 rounded-full"></div>
                                   <div className="flex-1 bg-white/20 rounded-full h-6 lg:h-8 ml-4 lg:ml-6"></div>
                                 </div>
                                 
@@ -230,25 +230,8 @@ const Hero = () => {
           ))}
         </CarouselContent>
         
-        {/* Navigation Arrows - Desktop only, positioned to not overlap content */}
-        <div className="hidden lg:block">
-          <button
-            onClick={goToPrevious}
-            className="absolute left-8 top-1/2 transform -translate-y-1/2 z-20 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-110"
-          >
-            <ChevronLeft className="h-6 w-6" />
-          </button>
-          
-          <button
-            onClick={goToNext}
-            className="absolute right-8 top-1/2 transform -translate-y-1/2 z-20 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-110"
-          >
-            <ChevronRight className="h-6 w-6" />
-          </button>
-        </div>
-        
         {/* Enhanced Navigation Dots - Positioned to not overlap content */}
-        <div className="absolute bottom-32 sm:bottom-40 left-1/2 transform -translate-x-1/2 flex space-x-3 sm:space-x-4 z-20">
+        <div className="absolute lg:bottom-8 sm:bottom-40 left-1/2 transform -translate-x-1/2 flex space-x-3 sm:space-x-4 z-20">
           {slides.map((_, index) => (
             <button
               key={index}
@@ -262,21 +245,6 @@ const Hero = () => {
           ))}
         </div>
       </Carousel>
-      
-      {/* Enhanced Scroll Indicator - Positioned to not overlap content */}
-      <div className="absolute bottom-12 sm:bottom-16 left-1/2 transform -translate-x-1/2 z-20">
-        <button
-          onClick={scrollToNext}
-          className="text-white/80 hover:text-white transition-colors duration-300 flex flex-col items-center animate-bounce-gentle group"
-        >
-          <span className="text-xs sm:text-sm mb-2 sm:mb-3 font-medium opacity-90 group-hover:opacity-100 transition-opacity">
-            Descobrir mais
-          </span>
-          <div className="w-6 h-6 sm:w-8 sm:h-8 border-2 border-white/60 rounded-full flex items-center justify-center group-hover:border-white transition-colors">
-            <ChevronDown className="h-3 w-3 sm:h-4 sm:w-4" />
-          </div>
-        </button>
-      </div>
     </section>
   );
 };
