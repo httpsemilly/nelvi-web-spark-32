@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -20,7 +19,7 @@ const Header = () => {
     { label: 'Início', href: '#hero' },
     { label: 'Serviços', href: '#services' },
     { label: 'Sobre', href: '#about' },
-    { label: 'Portfolio', href: '#portfolio' },
+    { label: 'Portfólio', href: '#portfolio' },
     { label: 'Contato', href: '#contact' },
     { label: 'Área do Cliente', href: '/cliente' }
   ];
@@ -88,7 +87,7 @@ const Header = () => {
 
           {/* Theme Toggle & CTA Button */}
           <div className="hidden lg:flex items-center space-x-3 xl:space-x-4">
-            <ThemeToggle />
+            <ThemeToggle isScrolled={isScrolled}/>
             <Button 
               onClick={() => scrollToContact('Gostaria de solicitar um orçamento gratuito para meu projeto.')}
               className="bg-gradient-to-r from-brand-blue to-brand-purple hover:opacity-90 text-white px-4 xl:px-6 py-2 xl:py-3 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg font-semibold text-sm xl:text-base"
@@ -99,23 +98,25 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center space-x-3">
-            <ThemeToggle />
-            <button
-              className={`p-2 rounded-xl transition-colors duration-300 ${
-                isScrolled 
-                  ? 'hover:bg-muted text-foreground' 
-                  : 'hover:bg-white/10 text-white'
-              }`}
+            <ThemeToggle isScrolled={isScrolled}/>
+            <Button
+              variant="ghost"
+              size="sm"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className={`w-9 h-9 p-0 transition-all duration-300 ${
+                isScrolled 
+                  ? 'bg-muted hover:bg-muted/80 border border-border text-foreground hover:text-foreground' 
+                  : 'bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm text-white hover:text-white'
+              } dark:bg-gray-800/50 dark:hover:bg-gray-700/50 dark:border-gray-600/30`}
             >
-              {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
+              {isMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+            </Button>
           </div>
         </div>
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border shadow-lg">
+          <div className="lg:hidden absolute top-full left-4 right-4 bg-background/95 backdrop-blur-md border border-border shadow-lg rounded-xl mt-2">
             <nav className="px-4 sm:px-6 py-4 sm:py-6">
               <div className="flex flex-col space-y-3 sm:space-y-4">
                 {menuItems.map((item) => (
