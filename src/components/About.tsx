@@ -1,71 +1,13 @@
-
 import React, { useState } from 'react';
-import { ArrowRight, Star, Users, Zap, Code, Palette, Cpu, Sparkles, Target, Award } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import aboutCoding from '@/assets/about-coding.jpg';
-import aboutTeam from '@/assets/about-team.jpg';
-import aboutDesign from '@/assets/about-design.jpg';
+import { ArrowRight, Star, Users, Zap, Code, Palette, Cpu, Sparkles, Target, Award, TrendingUp, Globe, Shield, Eye, Layers, Headphones } from 'lucide-react';
 
 const About = () => {
-  const [activeTab, setActiveTab] = useState("design");
-
-  const stats = [{
-    icon: Award,
-    number: "200+",
-    label: "Projetos Entregues",
-    color: "from-green-500 to-emerald-600"
-  }, {
-    icon: Users,
-    number: "98%",
-    label: "Clientes Satisfeitos",
-    color: "from-blue-500 to-cyan-600"
-  }, {
-    icon: Target,
-    number: "5+",
-    label: "Anos de Experiência",
-    color: "from-purple-500 to-violet-600"
-  }];
-
-  const tabContent = {
-    design: {
-      image: aboutDesign,
-      title: "Design Excepcional",
-      description: "Cada projeto é desenvolvido especialmente para o seu negócio, com uma identidade visual única que reflete seus valores e objetivos. Nossa equipe de designers cria experiências digitais memoráveis, funcionais e que convertem visitantes em clientes.",
-      icon: Palette,
-      features: ["Interface Intuitiva", "Experiência do Usuário", "Design System", "Prototipagem"]
-    },
-    technology: {
-      image: aboutCoding,
-      title: "Tecnologia de Ponta",
-      description: "Utilizamos as mais modernas tecnologias do mercado para garantir sites rápidos, seguros e escaláveis. Nosso código é limpo, otimizado e segue as melhores práticas de desenvolvimento para garantir performance e manutenibilidade.",
-      icon: Code,
-      features: ["React/Next.js", "TypeScript", "Cloud Computing", "API Integration"]
-    },
-    team: {
-      image: aboutTeam,
-      title: "Equipe Especializada",
-      description: "Profissionais experientes e dedicados ao seu sucesso. Nossa equipe multidisciplinar trabalha em conjunto para entregar resultados excepcionais que superam as expectativas e geram valor real para o seu negócio.",
-      icon: Users,
-      features: ["Desenvolvedores Sênior", "Designers UX/UI", "Gestores de Projeto", "Suporte Especializado"]
-    }
-  };
-
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({
-        behavior: 'smooth'
-      });
-    }
-  };
-
   return (
-    <section id="about" className="section-padding bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-20 bg-background">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         
-        {/* Enhanced Header */}
-        <div className="text-center mb-16 sm:mb-20 lg:mb-24">
+        {/* Header */}
+        <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-brand-blue/10 to-brand-purple/10 rounded-full border border-brand-blue/20 mb-6 sm:mb-8">
             <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-brand-blue mr-2 sm:mr-3" />
             <span className="text-xs sm:text-sm font-semibold text-brand-blue">
@@ -81,85 +23,182 @@ const About = () => {
           </h2>
           
           <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed px-4">
-            Criamos sites que não apenas impressionam visualmente, mas também 
-            geram resultados reais e mensuráveis para o seu negócio.
+            Criamos sites que impressionam visualmente e geram resultados reais e mensuráveis para o seu negócio.
           </p>
         </div>
 
-        {/* Main Content Layout - Enhanced Responsiveness */}
-        <div className="max-w-7xl mx-auto mb-16 sm:mb-20 lg:mb-24">
-          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-start">
-            
-            {/* Left Side - Enhanced Stats */}
-            <div className="space-y-8 sm:space-y-12">
+        {/* Main Cards Section - Replicating the image structure */}
+        <div className="grid lg:grid-cols-2 gap-8 mb-20">
+          
+          {/* Left Card - Development Growth */}
+          <div className="bg-gradient-to-r from-brand-blue to-brand-purple p-8 rounded-3xl text-white relative overflow-hidden">
+            <div className="relative z-10">
+              <h3 className="text-2xl font-semibold mb-8">
+                Acelere seu desenvolvimento
+              </h3>
               
-              <div className="grid gap-4 sm:gap-6 lg:gap-8">
-                {stats.map((stat, index) => {
-                  const IconComponent = stat.icon;
-                  return (
-                    <div key={index} className="flex items-center gap-4 sm:gap-6 p-4 sm:p-6 bg-muted/20 rounded-2xl hover:bg-muted/30 transition-all duration-300 group">
-                      <div className={`w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br ${stat.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                        <IconComponent className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="text-2xl sm:text-3xl lg:text-4xl font-bold gradient-text mb-1">
-                          {stat.number}
-                        </div>
-                        <div className="text-sm sm:text-base text-muted-foreground font-medium">
-                          {stat.label}
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
+              {/* Chart/Growth Visual */}
+              <div className="flex items-end justify-center space-x-2 mb-8">
+                <div className="w-16 h-12 bg-white/30 rounded-t-lg"></div>
+                <div className="w-16 h-16 bg-white/40 rounded-t-lg"></div>
+                <div className="w-16 h-20 bg-white/50 rounded-t-lg"></div>
+                <div className="w-16 h-28 bg-white/60 rounded-t-lg"></div>
+                <div className="w-16 h-36 bg-white/80 rounded-t-lg relative">
+                  <TrendingUp className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-6 h-6 text-white" />
+                </div>
+                <div className="w-16 h-24 bg-white/40 rounded-t-lg"></div>
+                <div className="w-16 h-20 bg-white/30 rounded-t-lg"></div>
+              </div>
+              
+              <div className="text-right">
+                <div className="text-3xl font-bold mb-2">+90%</div>
+                <div className="text-white/80">Score de performance</div>
               </div>
             </div>
+            
+            {/* Background decoration */}
+            <div className="absolute top-4 right-4 w-32 h-32 bg-white/10 rounded-full"></div>
+            <div className="absolute bottom-4 left-4 w-24 h-24 bg-white/10 rounded-full"></div>
+          </div>
 
-            {/* Right Side - Enhanced Tabs Content */}
-            <div className="space-y-8 sm:space-y-10">
-              <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-                {/* Enhanced Tab Navigation */}
-                <TabsList className="grid w-full grid-cols-3 h-auto p-1 sm:p-2 bg-muted/50 rounded-2xl mb-8 sm:mb-10">
-                  <TabsTrigger value="design" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-brand-blue data-[state=active]:to-brand-purple data-[state=active]:text-white px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm font-semibold transition-all duration-300 rounded-xl">
-                    Design
-                  </TabsTrigger>
-                  <TabsTrigger value="technology" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-brand-blue data-[state=active]:to-brand-purple data-[state=active]:text-white px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm font-semibold transition-all duration-300 rounded-xl">
-                    Tecnologia
-                  </TabsTrigger>
-                  <TabsTrigger value="team" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-brand-blue data-[state=active]:to-brand-purple data-[state=active]:text-white px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm font-semibold transition-all duration-300 rounded-xl">
-                    Equipe
-                  </TabsTrigger>
-                </TabsList>
-
-                {/* Enhanced Tab Content */}
-                {Object.entries(tabContent).map(([key, content]) => (
-                  <TabsContent key={key} value={key} className="space-y-6 sm:space-y-8">
-                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-brand-blue to-brand-purple rounded-xl flex items-center justify-center shadow-lg">
-                        <content.icon className="h-6 w-6 sm:h-7 sm:w-7 text-white" />
-                      </div>
-                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground">
-                        {content.title}
-                      </h3>
-                    </div>
-                    
-                    <p className="text-muted-foreground leading-relaxed text-base sm:text-lg mb-6 sm:mb-8">
-                      {content.description}
-                    </p>
-                    
-                    {/* Features Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 mb-6 sm:mb-8">
-                      {content.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center p-2 sm:p-3 bg-muted/30 rounded-lg hover:bg-muted/40 transition-colors duration-200">
-                          <div className="w-2 h-2 bg-gradient-to-r from-brand-blue to-brand-purple rounded-full mr-2 sm:mr-3"></div>
-                          <span className="font-medium text-foreground text-sm">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </TabsContent>
-                ))}
-              </Tabs>
+          {/* Right Card - Experience & Satisfaction */}
+          <div className="bg-gradient-to-br from-slate-800 to-slate-900 p-8 rounded-3xl relative overflow-hidden border border-slate-700/30 shadow-xl">
+            <div className="relative z-10">
+              <h3 className="text-2xl font-semibold text-white mb-12">
+                Experiência comprovada
+              </h3>
+              
+              {/* 3 Column Stats Grid */}
+              <div className="grid grid-cols-3 gap-8 mb-12">
+                
+                {/* Projects Column */}
+                <div className="text-center group">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <Code className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="text-3xl font-bold text-white mb-2">200+</div>
+                  <div className="text-slate-300 text-sm">Projetos</div>
+                </div>
+                
+                {/* Satisfaction Column */}
+                <div className="text-center group">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <Star className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="text-3xl font-bold text-white mb-2">98%</div>
+                  <div className="text-slate-300 text-sm">Satisfação</div>
+                </div>
+                
+                {/* Experience Column */}
+                <div className="text-center group">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <Award className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="text-3xl font-bold text-white mb-2">5+</div>
+                  <div className="text-slate-300 text-sm">Anos</div>
+                </div>
+              </div>
+              
+              {/* Simple Bottom Text */}
+              <div className="text-center">
+                <div className="text-slate-400 text-sm font-medium">
+                  Excelência em soluções digitais
+                </div>
+              </div>
             </div>
+            
+            {/* Minimal Background decoration */}
+            <div className="absolute top-8 right-8 w-2 h-2 bg-purple-500/50 rounded-full"></div>
+            <div className="absolute bottom-8 left-8 w-1 h-1 bg-blue-500/50 rounded-full"></div>
+          </div>
+        </div>
+
+        {/* Values Section */}
+        <div className="mb-12">
+          <div className="flex items-center mb-8">
+            <div className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">NOSSOS VALORES</div>
+          </div>
+          
+          <h3 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+            Princípios que guiam nosso trabalho
+          </h3>
+          
+          <p className="text-lg text-muted-foreground max-w-2xl mb-12">
+            Nossos valores fundamentam cada projeto que desenvolvemos, garantindo 
+            excelência técnica e relacionamentos duradouros com nossos clientes.
+          </p>
+        </div>
+
+        {/* Value Cards */}
+        <div className="grid md:grid-cols-3 gap-8">
+          
+          {/* Innovation Card */}
+          <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 p-8 rounded-3xl hover:bg-gradient-to-br hover:from-indigo-100 hover:to-indigo-200 transition-all duration-300 group relative overflow-hidden">
+            <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <Zap className="h-6 w-6 text-white" />
+            </div>
+            
+            <h4 className="text-xl font-bold text-purple-800 mb-3">
+              Inovação
+            </h4>
+            
+            <p className="text-purple-700 mb-6 leading-relaxed">
+              Busca contínua por novas tecnologias e metodologias para 
+              oferecer as melhores soluções digitais.
+            </p>
+            
+            <div className="flex items-center text-purple-600 font-semibold cursor-pointer group">
+              <ArrowRight className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform duration-300" />
+            </div>
+            
+            <div className="absolute top-4 right-4 w-20 h-20 bg-purple-200/40 rounded-full"></div>
+            <div className="absolute bottom-4 left-4 w-12 h-12 bg-violet-200/40 rounded-full"></div>
+          </div>
+
+          {/* Quality Card */}
+          <div className="bg-gradient-to-br from-purple-100 to-purple-200 p-8 rounded-3xl hover:bg-gradient-to-br hover:from-purple-100 hover:to-purple-200 transition-all duration-300 group relative overflow-hidden">
+            <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <Shield className="h-6 w-6 text-white" />
+            </div>
+            
+            <h4 className="text-xl font-bold text-blue-800 mb-3">
+              Qualidade
+            </h4>
+            
+            <p className="text-blue-700 mb-6 leading-relaxed">
+              Compromisso com a excelência em cada etapa do desenvolvimento, 
+              desde o design até a entrega final.
+            </p>
+            
+            <div className="flex items-center text-blue-600 font-semibold cursor-pointer group">
+              <ArrowRight className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform duration-300" />
+            </div>
+            
+            <div className="absolute top-4 right-4 w-20 h-20 bg-blue-200/40 rounded-full"></div>
+            <div className="absolute bottom-4 left-4 w-12 h-12 bg-indigo-200/40 rounded-full"></div>
+          </div>
+
+          {/* Transparency Card */}
+          <div className="bg-gradient-to-br from-slate-50 to-gray-100 p-8 rounded-3xl hover:bg-gradient-to-br hover:from-slate-100 hover:to-gray-200 transition-all duration-300 group relative overflow-hidden">
+            <div className="w-12 h-12 bg-gradient-to-br from-slate-600 to-gray-700 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <Eye className="h-6 w-6 text-white" />
+            </div>
+            
+            <h4 className="text-xl font-bold text-slate-800 mb-3">
+              Transparência
+            </h4>
+            
+            <p className="text-slate-700 mb-6 leading-relaxed">
+              Comunicação clara e honesta com clientes e colaboradores 
+              em todas as etapas do projeto.
+            </p>
+            
+            <div className="flex items-center text-slate-600 font-semibold cursor-pointer group">
+              <ArrowRight className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform duration-300" />
+            </div>
+            
+            <div className="absolute top-4 right-4 w-20 h-20 bg-slate-200/40 rounded-full"></div>
+            <div className="absolute bottom-4 left-4 w-12 h-12 bg-gray-200/40 rounded-full"></div>
           </div>
         </div>
       </div>
