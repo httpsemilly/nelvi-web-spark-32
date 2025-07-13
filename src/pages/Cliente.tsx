@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Eye, EyeOff, User, Lock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -11,6 +10,13 @@ const Cliente = () => {
   const [loginData, setLoginData] = useState({ username: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
   const [loginError, setLoginError] = useState('');
+
+  // Mock client data - in a real app this would come from an API
+  const clientData = {
+    name: 'Cliente Demo',
+    email: 'cliente@nelvi.com',
+    project: 'Sistema Web Personalizado'
+  };
 
   useEffect(() => {
     // Verificar se já está logado
@@ -39,7 +45,7 @@ const Cliente = () => {
   };
 
   if (isLoggedIn) {
-    return <ClientDashboard onLogout={handleLogout} />;
+    return <ClientDashboard clientData={clientData} onLogout={handleLogout} />;
   }
 
   return (
@@ -127,7 +133,7 @@ const Cliente = () => {
 
               <Button 
                 type="submit" 
-                className="w-full bg-gradient-to-r from-brand-blue to-brand-purple hover:opacity-90 text-white px-4 xl:px-6 py-2 xl:py-3 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg font-semibold text-sm xl:text-base"
+                className="w-full bg-nelvi-gradient hover:opacity-90 text-white py-3 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
               >
                 Entrar
               </Button>
