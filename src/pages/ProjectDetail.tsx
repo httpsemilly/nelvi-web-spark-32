@@ -158,28 +158,28 @@ const ProjectDetail = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-950 transition-colors duration-300">
+    <div className="min-h-screen bg-background transition-colors duration-300">
       {/* Header */}
-      <header className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-40">
+      <header className="bg-background/95 backdrop-blur-md border-b border-border sticky top-0 z-40">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <Button
                 onClick={handleVoltar}
                 variant="ghost"
-                className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-nelvi-blue-strong dark:hover:text-nelvi-purple"
+                className="flex items-center space-x-2 text-muted-foreground hover:text-brand-blue"
               >
                 <ArrowLeft className="h-4 w-4" />
                 <span>Voltar ao Portfolio</span>
               </Button>
-              <div className="h-6 w-px bg-gray-300 dark:bg-gray-600"></div>
-              <span className="text-lg font-semibold text-gray-900 dark:text-white">{project.title}</span>
+              <div className="h-6 w-px bg-border"></div>
+              <span className="text-lg font-semibold text-foreground">{project.title}</span>
             </div>
             <div className="flex items-center space-x-3">
-              <ThemeToggle />
+              <ThemeToggle isScrolled={true} />
               <Button 
                 onClick={handleSolicitarOrcamento}
-                className="bg-nelvi-gradient hover:opacity-90 text-white px-6 py-2 rounded-lg transition-all duration-300 hover:scale-105"
+                className="bg-gradient-to-r from-brand-blue to-brand-purple hover:opacity-90 text-white px-6 py-2 rounded-xl transition-all duration-300 hover:scale-105"
               >
                 Solicitar Orçamento
               </Button>
