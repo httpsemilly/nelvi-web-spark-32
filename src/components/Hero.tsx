@@ -33,46 +33,48 @@ const Hero = () => {
   ];
 
   return (
-    <section id="hero" className="relative min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
+    <section id="hero" className="relative min-h-screen bg-gradient-to-br from-background to-secondary overflow-hidden">
       
       {/* Main Content */}
       <div className="relative z-10 min-h-screen flex items-center">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center max-w-7xl mx-auto">
             
             {/* Left Side - Content */}
-            <div className="space-y-8 lg:space-y-12">
-              <div className="space-y-6">
-                <div className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-white/20 shadow-sm">
-                  <Sparkles className="w-5 h-5 text-blue-500 mr-2" />
-                  <span className="text-sm font-semibold text-gray-700">
+            <div className="space-y-6 sm:space-y-8 lg:space-y-12 fade-in">
+              <div className="space-y-4 sm:space-y-6">
+                <div className="inline-flex items-center px-4 py-2 bg-card/80 backdrop-blur-sm rounded-full border border-border shadow-sm">
+                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-brand-blue mr-2" />
+                  <span className="text-xs sm:text-sm font-semibold text-muted-foreground">
                     Nelvi - Transformação Digital
                   </span>
                 </div>
                 
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight">
                   Soluções Digitais que Transformam
                 </h1>
                 
-                <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-xl">
+                <p className="text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-2xl">
                   Desenvolvemos experiências digitais excepcionais que impulsionam seu negócio para o próximo nível.
                 </p>
               </div>
 
-              {/* Stats Grid */}
-              <div className="grid grid-cols-2 gap-4 sm:gap-6">
+              {/* Stats Grid - Responsive */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 lg:gap-6 slide-up animate-delay-200">
                 {stats.map((stat, index) => (
                   <div 
                     key={index} 
-                    className={`p-4 rounded-xl ${stat.isButton 
-                      ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white cursor-pointer hover:from-blue-600 hover:to-purple-700 transition-all' 
-                      : 'bg-white shadow-sm border border-gray-100'}`}
+                    className={`p-4 sm:p-5 lg:p-6 rounded-xl card-hover ${stat.isButton 
+                      ? 'bg-gradient-to-r from-brand-blue to-brand-purple text-primary-foreground cursor-pointer hover:shadow-xl' 
+                      : 'bg-card shadow-sm border border-border hover:border-brand-blue/30'}`}
                     onClick={stat.isButton ? stat.action : undefined}
                   >
-                    <div className="flex flex-col items-start">
-                      <span className="text-2xl mb-2">{stat.icon}</span>
-                      <h3 className="font-bold text-lg sm:text-xl">{stat.title}</h3>
-                      <p className={`text-sm ${stat.isButton ? 'text-white/90' : 'text-gray-600'}`}>
+                    <div className="flex flex-col items-start space-y-2">
+                      <span className="text-xl sm:text-2xl">{stat.icon}</span>
+                      <h3 className={`font-bold text-base sm:text-lg lg:text-xl ${stat.isButton ? 'text-primary-foreground' : 'text-foreground'}`}>
+                        {stat.title}
+                      </h3>
+                      <p className={`text-xs sm:text-sm ${stat.isButton ? 'text-primary-foreground/90' : 'text-muted-foreground'}`}>
                         {stat.description}
                       </p>
                     </div>
@@ -81,9 +83,9 @@ const Hero = () => {
               </div>
 
               {/* CTA Section */}
-              <div className="space-y-4 pt-4">
+              <div className="space-y-3 sm:space-y-4 pt-2 sm:pt-4 slide-in-left animate-delay-400">
                 <button 
-                  className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 hover:shadow-lg font-semibold"
+                  className="btn-primary w-full sm:w-auto"
                   onClick={() => {
                     const servicesSection = document.getElementById('services');
                     if (servicesSection) {
@@ -93,48 +95,37 @@ const Hero = () => {
                 >
                   Nossos Serviços
                 </button>
-                <p className="text-sm text-gray-500 font-medium">
+                <p className="text-xs sm:text-sm text-muted-foreground font-medium">
                   Ajudamos seus processos a focarem no que realmente importa.
                 </p>
               </div>
             </div>
 
-            {/* Right Side - Circular Design */}
-            <div className="relative flex justify-center lg:justify-end order-first lg:order-last">
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[500px] lg:h-[500px]">
-                {/* Main Circle with Gradient */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400 via-blue-500 to-purple-600 shadow-2xl">
+            {/* Right Side - Circular Design - Responsive */}
+            <div className="relative flex justify-center lg:justify-end order-first lg:order-last slide-in-right animate-delay-600">
+              <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-[400px] lg:h-[400px] xl:w-[500px] xl:h-[500px]">
+                {/* Main Circle with Brand Gradient */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-brand-blue via-brand-accent to-brand-purple shadow-2xl animate-pulse-glow">
                   {/* Inner circle creating the oval effect */}
-                  <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 w-3/4 h-1/3 bg-gradient-to-br from-blue-500 to-purple-700 rounded-full opacity-80"></div>
+                  <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 w-3/4 h-1/3 bg-gradient-to-br from-brand-blue to-brand-purple rounded-full opacity-80"></div>
                   
                   {/* Bottom darker section */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-purple-800 via-purple-700 to-transparent rounded-b-full"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-brand-purple/80 via-brand-purple/60 to-transparent rounded-b-full"></div>
                 </div>
                 
-                {/* Floating elements */}
-                <div className="absolute -top-4 -right-4 w-16 h-16 bg-blue-300/40 rounded-full animate-bounce"></div>
-                <div className="absolute -bottom-8 -left-8 w-20 h-20 bg-purple-200/30 rounded-full animate-pulse"></div>
-                <div className="absolute top-1/2 -right-6 w-12 h-12 bg-white/20 rounded-full animate-float"></div>
+                {/* Floating elements - Responsive */}
+                <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-8 h-8 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-brand-blue/40 rounded-full animate-bounce-gentle"></div>
+                <div className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 lg:-bottom-8 lg:-left-8 w-10 h-10 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-brand-purple/30 rounded-full animate-pulse"></div>
+                <div className="absolute top-1/2 -right-3 sm:-right-4 lg:-right-6 w-6 h-6 sm:w-8 sm:h-8 lg:w-12 lg:h-12 bg-card/20 rounded-full animate-float"></div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Background decorative elements */}
-      <div className="absolute top-20 right-20 w-32 h-32 bg-blue-100 rounded-full opacity-30 animate-float"></div>
-      <div className="absolute bottom-20 left-20 w-24 h-24 bg-purple-50 rounded-full opacity-40 animate-pulse"></div>
-      
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
-        }
-        
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
-        }
-      `}</style>
+      {/* Background decorative elements - Hidden on mobile */}
+      <div className="absolute top-10 right-10 sm:top-20 sm:right-20 w-16 h-16 sm:w-24 sm:h-24 lg:w-32 lg:h-32 bg-brand-blue/10 rounded-full opacity-30 animate-float hidden sm:block"></div>
+      <div className="absolute bottom-10 left-10 sm:bottom-20 sm:left-20 w-12 h-12 sm:w-18 sm:h-18 lg:w-24 lg:h-24 bg-brand-purple/10 rounded-full opacity-40 animate-pulse hidden sm:block"></div>
     </section>
   );
 };
