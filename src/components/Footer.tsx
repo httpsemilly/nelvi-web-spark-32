@@ -41,7 +41,7 @@ const Footer = () => {
       </div>
 
       {/* Main Footer */}
-      <div className="container mx-auto container-padding py-20 relative z-10">
+      <div className="container mx-auto container-padding py-10 relative z-10">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Enhanced Brand */}
           <div className="lg:col-span-1">
