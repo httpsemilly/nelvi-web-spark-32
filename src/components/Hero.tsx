@@ -1,25 +1,25 @@
 import React from 'react';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, BarChart3, Users, Clock, Phone } from 'lucide-react';
 
 const Hero = () => {
   const stats = [
     {
-      icon: "📊",
+      icon: BarChart3,
       title: "200+",
       description: "projetos entregues"
     },
     {
-      icon: "😊", 
+      icon: Users, 
       title: "98%",
       description: "clientes satisfeitos"
     },
     {
-      icon: "⏳",
+      icon: Clock,
       title: "5+",
       description: "anos de experiência"
     },
     {
-      icon: "📞",
+      icon: Phone,
       title: "Fale Conosco",
       description: "Solicite um orçamento",
       isButton: true,
@@ -33,7 +33,20 @@ const Hero = () => {
   ];
 
   return (
-    <section id="hero" className="relative min-h-screen bg-gradient-to-br from-background to-secondary overflow-hidden">
+    <section id="hero" className="relative min-h-screen bg-gradient-to-br from-background to-secondary md:bg-gradient-to-br md:from-background md:to-secondary overflow-hidden"
+             style={{
+               background: window.innerWidth < 768 ? 'linear-gradient(135deg, hsl(210 40% 98%) 0%, hsl(217 91% 95%) 100%)' : undefined
+             }}>
+      
+      {/* Mobile Background Circles */}
+      <div className="md:hidden absolute inset-0 overflow-hidden">
+        <div className="absolute top-10 right-8 w-24 h-24 bg-brand-blue/10 rounded-full animate-float"></div>
+        <div className="absolute top-32 left-12 w-16 h-16 bg-brand-purple/10 rounded-full animate-pulse"></div>
+        <div className="absolute bottom-32 right-16 w-20 h-20 bg-brand-blue/15 rounded-full animate-bounce-gentle"></div>
+        <div className="absolute bottom-20 left-8 w-12 h-12 bg-brand-purple/20 rounded-full animate-float"></div>
+        <div className="absolute top-1/2 left-1/4 w-8 h-8 bg-brand-blue/10 rounded-full animate-pulse"></div>
+        <div className="absolute top-1/3 right-1/3 w-14 h-14 bg-brand-purple/10 rounded-full animate-bounce-gentle"></div>
+      </div>
       
       {/* Main Content */}
       <div className="relative z-10 min-h-screen flex items-center">
@@ -61,25 +74,28 @@ const Hero = () => {
 
               {/* Stats Grid - Responsive */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 lg:gap-6 slide-up animate-delay-200">
-                {stats.map((stat, index) => (
-                  <div 
-                    key={index} 
-                    className={`p-4 sm:p-5 lg:p-6 rounded-xl card-hover ${stat.isButton 
-                      ? 'bg-gradient-to-r from-brand-blue to-brand-purple text-primary-foreground cursor-pointer hover:shadow-xl' 
-                      : 'bg-card shadow-sm border border-border hover:border-brand-blue/30'}`}
-                    onClick={stat.isButton ? stat.action : undefined}
-                  >
-                    <div className="flex flex-col items-start space-y-2">
-                      <span className="text-xl sm:text-2xl">{stat.icon}</span>
-                      <h3 className={`font-bold text-base sm:text-lg lg:text-xl ${stat.isButton ? 'text-primary-foreground' : 'text-foreground'}`}>
-                        {stat.title}
-                      </h3>
-                      <p className={`text-xs sm:text-sm ${stat.isButton ? 'text-primary-foreground/90' : 'text-muted-foreground'}`}>
-                        {stat.description}
-                      </p>
+                {stats.map((stat, index) => {
+                  const IconComponent = stat.icon;
+                  return (
+                    <div 
+                      key={index} 
+                      className={`p-4 sm:p-5 lg:p-6 rounded-xl card-hover ${stat.isButton 
+                        ? 'bg-gradient-to-r from-brand-blue to-brand-purple text-primary-foreground cursor-pointer hover:shadow-xl' 
+                        : 'bg-card shadow-sm border border-border hover:border-brand-blue/30'}`}
+                      onClick={stat.isButton ? stat.action : undefined}
+                    >
+                      <div className="flex flex-col items-start space-y-2">
+                        <IconComponent className={`w-5 h-5 sm:w-6 sm:h-6 ${stat.isButton ? 'text-primary-foreground' : 'text-brand-blue'}`} />
+                        <h3 className={`font-bold text-base sm:text-lg lg:text-xl ${stat.isButton ? 'text-primary-foreground' : 'text-foreground'}`}>
+                          {stat.title}
+                        </h3>
+                        <p className={`text-xs sm:text-sm ${stat.isButton ? 'text-primary-foreground/90' : 'text-muted-foreground'}`}>
+                          {stat.description}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  )
+                })}
               </div>
 
               {/* CTA Section */}
@@ -101,8 +117,8 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* Right Side - Circular Design - Responsive */}
-            <div className="relative flex justify-center lg:justify-end order-first lg:order-last slide-in-right animate-delay-600">
+            {/* Right Side - Circular Design - Hidden on mobile, visible on lg+ */}
+            <div className="relative hidden lg:flex justify-center lg:justify-end order-first lg:order-last slide-in-right animate-delay-600">
               <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-[400px] lg:h-[400px] xl:w-[500px] xl:h-[500px]">
                 {/* Main Circle with Brand Gradient */}
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-brand-blue via-brand-accent to-brand-purple shadow-2xl animate-pulse-glow">

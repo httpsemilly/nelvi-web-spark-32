@@ -76,7 +76,7 @@ const Header = () => {
                 key={item.label}
                 href={item.href}
                 className={`relative font-medium transition-all duration-300 hover:text-brand-blue group text-sm xl:text-base ${
-                  isScrolled ? 'text-foreground' : 'text-white'
+                  isScrolled ? 'text-foreground' : 'text-foreground'
                 }`}
               >
                 {item.label}
