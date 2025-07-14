@@ -2,7 +2,8 @@ import React from 'react';
 import { ArrowRight, ExternalLink, Sparkles } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+
 const Portfolio = () => {
   const projects = [{
     title: 'E-commerce Premium',
@@ -32,7 +33,7 @@ const Portfolio = () => {
     title: 'App de Delivery',
     category: 'Aplicativo Web',
     description: 'Aplicação web completa para delivery com sistema de pedidos em tempo real, painel administrativo e integração com pagamentos.',
-    image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=500&h=300&fit=crop',
+    image: 'https://images.unsplash.com/photo-1599202889720-cd3c0833efa1?w=500&h=300&fit=crop',
     tags: ['Web App', 'Real-time', 'Dashboard', 'Mobile'],
     slug: 'app-delivery',
     color: 'from-orange-500 to-red-500'
@@ -53,7 +54,9 @@ const Portfolio = () => {
     slug: 'landing-page',
     color: 'from-teal-500 to-blue-500'
   }];
-  return <section id="portfolio" className="section-padding bg-muted/30">
+
+  return (
+    <section id="portfolio" className="section-padding bg-muted/30">
       <div className="container mx-auto container-padding">
         <div className="text-center mb-16 fade-in">
           <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-brand-blue/10 to-brand-purple/10 rounded-full border border-brand-blue/20 mb-6">
@@ -77,13 +80,22 @@ const Portfolio = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => <Card key={project.title} className="group card-hover border-0 shadow-lg overflow-hidden bg-card/80 backdrop-blur-sm hover:bg-card animate-fade-in relative" style={{
-          animationDelay: `${index * 100}ms`
-        }}>
+          {projects.map((project, index) => (
+            <Card 
+              key={project.title} 
+              className="group card-hover border-0 shadow-lg overflow-hidden bg-card/80 backdrop-blur-sm hover:bg-card animate-fade-in relative h-full flex flex-col" 
+              style={{
+                animationDelay: `${index * 100}ms`
+              }}
+            >
               <div className="relative">
                 {/* Enhanced Project Image */}
                 <div className="h-48 relative overflow-hidden">
-                  <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110" />
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110" 
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/60 transition-all duration-500"></div>
                   
                   {/* Enhanced Category Badge */}
@@ -96,44 +108,62 @@ const Portfolio = () => {
                   {/* Enhanced Hover Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/20 to-brand-purple/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                     <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 flex space-x-4">
-                      <Button size="sm" className="bg-white text-primary hover:bg-white/90 font-semibold shadow-lg text-xs px-3 py-2">
-                        <ExternalLink className="w-3 h-3 mr-1" />
-                        Ver Projeto
-                      </Button>
+                      <a 
+                        href={`/projeto/${project.slug}`} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                      >
+                        <Button size="sm" className="bg-white text-primary hover:bg-white/90 font-semibold shadow-lg text-xs px-3 py-2">
+                          <ExternalLink className="w-3 h-3 mr-1" />
+                          Ver Projeto
+                        </Button>
+                      </a>
                     </div>
                   </div>
                 </div>
               </div>
               
-              <CardContent className="p-6 bg-card relative">
+              <CardContent className="p-6 bg-card relative flex flex-col flex-grow">
                 <h3 className="text-lg font-bold text-foreground mb-3 group-hover:text-brand-blue transition-colors duration-300">
                   {project.title}
                 </h3>
                 
-                <p className="text-muted-foreground mb-4 leading-relaxed line-clamp-3 text-sm">
+                <p className="text-muted-foreground mb-4 leading-relaxed text-sm flex-grow">
                   {project.description}
                 </p>
                 
                 <div className="flex flex-wrap gap-1.5 mb-4">
-                  {project.tags.map(tag => <span key={tag} className="px-2 py-1 bg-gradient-to-r from-brand-blue/10 to-brand-purple/10 text-brand-blue text-xs rounded-full font-medium border border-brand-blue/20">
+                  {project.tags.map(tag => (
+                    <span 
+                      key={tag} 
+                      className="px-2 py-1 bg-gradient-to-r from-brand-blue/10 to-brand-purple/10 text-brand-blue text-xs rounded-full font-medium border border-brand-blue/20"
+                    >
                       {tag}
-                    </span>)}
+                    </span>
+                  ))}
                 </div>
                 
-                <Link to={`/projeto/${project.slug}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-brand-blue font-semibold hover:text-brand-purple transition-colors duration-300 group/btn text-sm">
-                  Ver Detalhes do Projeto
-                  <ArrowRight className="ml-1 h-3 w-3 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                </Link>
+                <div className="mt-auto">
+                  <a 
+                    href={`/projeto/${project.slug}`} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="inline-flex items-center text-brand-blue font-semibold hover:text-brand-purple transition-colors duration-300 group/btn text-sm"
+                  >
+                    Ver Projeto
+                    <ArrowRight className="ml-1 h-3 w-3 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                  </a>
+                </div>
                 
                 {/* Enhanced Decorative gradient line */}
                 <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${project.color} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}></div>
               </CardContent>
-            </Card>)}
+            </Card>
+          ))}
         </div>
-
-        {/* Enhanced CTA */}
-        
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Portfolio;
