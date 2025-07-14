@@ -114,16 +114,12 @@ const About = () => {
         </div>
 
         {/* Values Section */}
-        <div className="mb-12">
-          <div className="flex items-center mb-8">
-            <div className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">NOSSOS VALORES</div>
-          </div>
-          
+        <div className="text-center mb-12">
           <h3 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
             Princípios que guiam nosso trabalho
           </h3>
           
-          <p className="text-lg text-muted-foreground max-w-2xl mb-12">
+          <p className="text-center text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
             Nossos valores fundamentam cada projeto que desenvolvemos, garantindo 
             excelência técnica e relacionamentos duradouros com nossos clientes.
           </p>
