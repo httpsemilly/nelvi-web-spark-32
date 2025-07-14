@@ -1,42 +1,35 @@
 import React from 'react';
 import { Sparkles, BarChart3, Users, Clock, Phone } from 'lucide-react';
-
 const Hero = () => {
-  const stats = [
-    {
-      icon: BarChart3,
-      title: "200+",
-      description: "projetos entregues"
-    },
-    {
-      icon: Users, 
-      title: "98%",
-      description: "clientes satisfeitos"
-    },
-    {
-      icon: Clock,
-      title: "5+",
-      description: "anos de experiência"
-    },
-    {
-      icon: Phone,
-      title: "Fale Conosco",
-      description: "Solicite um orçamento",
-      isButton: true,
-      action: () => {
-        const contactSection = document.getElementById('contact');
-        if (contactSection) {
-          contactSection.scrollIntoView({ behavior: 'smooth' });
-        }
+  const stats = [{
+    icon: BarChart3,
+    title: "200+",
+    description: "projetos entregues"
+  }, {
+    icon: Users,
+    title: "98%",
+    description: "clientes satisfeitos"
+  }, {
+    icon: Clock,
+    title: "5+",
+    description: "anos de experiência"
+  }, {
+    icon: Phone,
+    title: "Fale Conosco",
+    description: "Solicite um orçamento",
+    isButton: true,
+    action: () => {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({
+          behavior: 'smooth'
+        });
       }
     }
-  ];
-
-  return (
-    <section id="hero" className="relative min-h-screen bg-gradient-to-br from-background to-secondary md:bg-gradient-to-br md:from-background md:to-secondary overflow-hidden"
-             style={{
-               background: window.innerWidth < 768 ? 'linear-gradient(135deg, hsl(210 40% 98%) 0%, hsl(217 91% 95%) 100%)' : undefined
-             }}>
+  }];
+  return <section id="hero" className="relative min-h-screen bg-gradient-to-br from-background to-secondary md:bg-gradient-to-br md:from-background md:to-secondary overflow-hidden" style={{
+    background: window.innerWidth < 768 ? 'linear-gradient(135deg, hsl(210 40% 98%) 0%, hsl(217 91% 95%) 100%)' : undefined
+  }}>
       
       {/* Mobile Background Circles */}
       <div className="md:hidden absolute inset-0 overflow-hidden">
@@ -75,15 +68,8 @@ const Hero = () => {
               {/* Stats Grid - Responsive */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 lg:gap-6 slide-up animate-delay-200">
                 {stats.map((stat, index) => {
-                  const IconComponent = stat.icon;
-                  return (
-                    <div 
-                      key={index} 
-                      className={`p-4 sm:p-5 lg:p-6 rounded-xl card-hover ${stat.isButton 
-                        ? 'bg-gradient-to-r from-brand-blue to-brand-purple text-primary-foreground cursor-pointer hover:shadow-xl' 
-                        : 'bg-card shadow-sm border border-border hover:border-brand-blue/30'}`}
-                      onClick={stat.isButton ? stat.action : undefined}
-                    >
+                const IconComponent = stat.icon;
+                return <div key={index} className={`p-4 sm:p-5 lg:p-6 rounded-xl card-hover ${stat.isButton ? 'bg-gradient-to-r from-brand-blue to-brand-purple text-primary-foreground cursor-pointer hover:shadow-xl' : 'bg-card shadow-sm border border-border hover:border-brand-blue/30'}`} onClick={stat.isButton ? stat.action : undefined}>
                       <div className="flex flex-col items-start space-y-2">
                         <IconComponent className={`w-5 h-5 sm:w-6 sm:h-6 ${stat.isButton ? 'text-primary-foreground' : 'text-brand-blue'}`} />
                         <h3 className={`font-bold text-base sm:text-lg lg:text-xl ${stat.isButton ? 'text-primary-foreground' : 'text-foreground'}`}>
@@ -93,28 +79,12 @@ const Hero = () => {
                           {stat.description}
                         </p>
                       </div>
-                    </div>
-                  )
-                })}
+                    </div>;
+              })}
               </div>
 
               {/* CTA Section */}
-              <div className="space-y-3 sm:space-y-4 pt-2 sm:pt-4 slide-in-left animate-delay-400">
-                <button 
-                  className="btn-primary w-full sm:w-auto"
-                  onClick={() => {
-                    const servicesSection = document.getElementById('services');
-                    if (servicesSection) {
-                      servicesSection.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }}
-                >
-                  Nossos Serviços
-                </button>
-                <p className="text-xs sm:text-sm text-muted-foreground font-medium">
-                  Ajudamos seus processos a focarem no que realmente importa.
-                </p>
-              </div>
+              
             </div>
 
             {/* Right Side - Circular Design - Hidden on mobile, visible on lg+ */}
@@ -142,8 +112,6 @@ const Hero = () => {
       {/* Background decorative elements - Hidden on mobile */}
       <div className="absolute top-10 right-10 sm:top-20 sm:right-20 w-16 h-16 sm:w-24 sm:h-24 lg:w-32 lg:h-32 bg-brand-blue/10 rounded-full opacity-30 animate-float hidden sm:block"></div>
       <div className="absolute bottom-10 left-10 sm:bottom-20 sm:left-20 w-12 h-12 sm:w-18 sm:h-18 lg:w-24 lg:h-24 bg-brand-purple/10 rounded-full opacity-40 animate-pulse hidden sm:block"></div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
